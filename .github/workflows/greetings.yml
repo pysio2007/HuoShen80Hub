@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.PYSIO_TOKEN }}
+        issue-message: "欢迎向本项目提交issue 请耐心等待审核"
+        pr-message: "感谢你提交PR，请在此检查图片/Url指向正确 耐心等待审核"
